@@ -136,7 +136,7 @@ After adding/changing env vars, must redeploy for them to take effect.
 
 ## Next steps
 1. ~~Deploy frontend to Cloudflare Pages~~ ✅ DONE 2026-06-08 — https://privara-4q7.pages.dev
-2. Add a remote Git origin (GitHub) and push
+2. ~~Add a remote Git origin (GitHub) and push~~ ✅ DONE 2026-06-08 — https://github.com/aionthetrack/Privara
 3. Add pricing / Stripe billing
 4. Add multi-user / team support
 5. Add re-assessment diff view (score over time)

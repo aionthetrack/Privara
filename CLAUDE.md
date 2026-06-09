@@ -138,5 +138,8 @@ After adding/changing env vars, must redeploy for them to take effect.
 1. ~~Deploy frontend to Cloudflare Pages~~ ✅ DONE 2026-06-08 — https://privara-4q7.pages.dev
 2. ~~Add a remote Git origin (GitHub) and push~~ ✅ DONE 2026-06-08 — https://github.com/aionthetrack/Privara
 3. Add pricing / Stripe billing
+   - When this lands, add `plan` and `trial_ends_at` columns to `organizations` and gate
+     premium features (e.g. Compliance Gaps "Manage" / remediation tracker on Dashboard)
+     behind plan/trial status — currently fully open to all users regardless of plan.
 4. Add multi-user / team support
 5. Add re-assessment diff view (score over time)

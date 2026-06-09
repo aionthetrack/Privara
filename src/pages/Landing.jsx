@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import PricingSection from '../components/landing/PricingSection'
+import NewsletterStrip from '../components/landing/NewsletterStrip'
 
 export default function Landing() {
   return (
@@ -74,6 +75,9 @@ export default function Landing() {
 
       {/* Pricing */}
       <PricingSection />
+
+      {/* Newsletter */}
+      <NewsletterStrip />
 
       {/* Footer */}
       <footer className="border-t border-gray-100 dark:border-gray-800 py-8 px-6 text-center text-sm text-gray-400 dark:text-gray-600">

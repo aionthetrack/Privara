@@ -116,4 +116,19 @@ CREATE POLICY "Anyone can read report shares by slug"
   ON report_shares FOR SELECT
   USING (true);
 
+-- Newsletter / email signups (public, no auth required)
+CREATE TABLE IF NOT EXISTS email_signups (
+  id         UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  email      TEXT NOT NULL UNIQUE,
+  source     TEXT NOT NULL DEFAULT 'newsletter',
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+ALTER TABLE email_signups ENABLE ROW LEVEL SECURITY;
+
+-- Anyone can insert their own email; no one can read the list via client
+CREATE POLICY "Anyone can sign up"
+  ON email_signups FOR INSERT
+  WITH CHECK (true);
+
 -- Edge functions need service role to bypass RLS (handled via SUPABASE_SERVICE_ROLE_KEY in function env)

@@ -54,7 +54,7 @@ const TIERS = [
     monthly: 599,
     annual: 479,
     cta: 'Talk to us',
-    ctaTo: '/contact',
+    ctaTo: 'mailto:hello@privara.io?subject=Scale plan enquiry',
     ctaStyle: 'outline',
     badge: null,
     included: [
@@ -161,16 +161,25 @@ export default function PricingSection() {
 
               {/* CTA */}
               <div className="mt-6">
-                <Link
-                  to={tier.ctaTo}
-                  className={`block w-full rounded-lg px-4 py-2.5 text-center text-sm font-semibold transition-colors ${
-                    tier.ctaStyle === 'solid'
-                      ? 'bg-blue-500 text-white hover:bg-blue-600'
-                      : 'border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
-                  }`}
-                >
-                  {tier.cta}
-                </Link>
+                {tier.ctaTo.startsWith('mailto:') ? (
+                  <a
+                    href={tier.ctaTo}
+                    className={`block w-full rounded-lg px-4 py-2.5 text-center text-sm font-semibold transition-colors border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800`}
+                  >
+                    {tier.cta}
+                  </a>
+                ) : (
+                  <Link
+                    to={tier.ctaTo}
+                    className={`block w-full rounded-lg px-4 py-2.5 text-center text-sm font-semibold transition-colors ${
+                      tier.ctaStyle === 'solid'
+                        ? 'bg-blue-500 text-white hover:bg-blue-600'
+                        : 'border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
+                    }`}
+                  >
+                    {tier.cta}
+                  </Link>
+                )}
               </div>
 
               {/* Divider */}
@@ -199,9 +208,9 @@ export default function PricingSection() {
         <div className="mt-12 text-center">
           <p className="text-sm text-gray-500 dark:text-gray-400">
             Need more than 5 seats or a custom contract?{' '}
-            <Link to="/contact" className="font-medium text-blue-500 hover:text-blue-600">
+            <a href="mailto:hello@privara.io?subject=Enterprise pricing" className="font-medium text-blue-500 hover:text-blue-600">
               Contact us for enterprise pricing →
-            </Link>
+            </a>
           </p>
         </div>
       </div>

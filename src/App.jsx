@@ -3,6 +3,7 @@ import { Toaster } from 'react-hot-toast'
 import { AuthProvider, useAuth } from './hooks/useAuth'
 import ProtectedRoute from './components/ProtectedRoute'
 
+import Landing from './pages/Landing'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Onboarding from './pages/Onboarding'
@@ -19,7 +20,7 @@ function RootRedirect() {
       <div className="w-8 h-8 border-2 border-indigo-500 border-t-transparent rounded-full animate-spin" />
     </div>
   )
-  if (!user) return <Navigate to="/login" replace />
+  if (!user) return <Navigate to="/landing" replace />
   if (!org) return <Navigate to="/onboarding" replace />
   return <Navigate to="/dashboard" replace />
 }
@@ -38,6 +39,7 @@ export default function App() {
         />
         <Routes>
           {/* Public */}
+          <Route path="/landing" element={<Landing />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/report/:slug" element={<Report />} />

@@ -40,13 +40,10 @@ export default function Landing() {
           >
             Start free assessment
           </Link>
-          <Link
-            to="/login"
-            className="rounded-lg border border-gray-300 dark:border-gray-600 px-6 py-3 text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
-          >
-            Sign in
-          </Link>
         </div>
+        <p className="mt-4 text-sm text-gray-400 dark:text-gray-500">
+          No credit card required · Results in 15 minutes
+        </p>
       </section>
 
       {/* Features */}

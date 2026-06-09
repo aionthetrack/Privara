@@ -41,10 +41,10 @@ export default function Landing() {
             Start free assessment
           </Link>
           <Link
-            to="/contact"
+            to="/login"
             className="rounded-lg border border-gray-300 dark:border-gray-600 px-6 py-3 text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
           >
-            Book a demo
+            Sign in
           </Link>
         </div>
       </section>

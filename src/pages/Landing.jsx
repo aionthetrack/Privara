@@ -30,7 +30,7 @@ export default function Landing() {
           Get HIPAA compliant<br />in hours, not months
         </h1>
         <p className="mt-6 text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
-          Privara runs a 40-question risk assessment, scores your compliance posture with AI,
+          Privara runs a quick risk assessment, scores your compliance posture with AI,
           generates policy documents, and produces a shareable audit report — all in one place.
         </p>
         <div className="mt-10 flex items-center justify-center gap-4 flex-wrap">
@@ -42,7 +42,7 @@ export default function Landing() {
           </Link>
         </div>
         <p className="mt-4 text-sm text-gray-400 dark:text-gray-500">
-          No credit card required · Results in 15 minutes
+          No credit card required · Results in 5 minutes
         </p>
       </section>
 
@@ -54,7 +54,7 @@ export default function Landing() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: 'Risk Assessment', desc: '40-question assessment across 5 HIPAA domains — takes 15 minutes.' },
+              { title: 'Risk Assessment', desc: '10-question assessment across 5 HIPAA domains — takes 5 minutes.' },
               { title: 'AI Compliance Score', desc: 'Claude AI scores your responses and identifies gaps by severity.' },
               { title: 'Policy Generator', desc: 'Auto-generate Privacy Policy, Security Policy, and Incident Response Plan.' },
               { title: 'Gap Analysis', desc: 'Prioritized list of compliance gaps with actionable remediation steps.' },

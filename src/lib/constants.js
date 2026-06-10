@@ -35,12 +35,6 @@ export const ASSESSMENT_CATEGORIES = [
     questions: [
       { id: 'ac_1', text: 'Do all users who access PHI require multi-factor authentication?' },
       { id: 'ac_2', text: 'Is access to PHI restricted by role (least privilege principle)?' },
-      { id: 'ac_3', text: 'Do you have automatic session timeouts for systems handling PHI?' },
-      { id: 'ac_4', text: 'Are access logs maintained and reviewed regularly?' },
-      { id: 'ac_5', text: 'Is there a formal process for revoking access when employees leave?' },
-      { id: 'ac_6', text: 'Do you use unique user IDs (no shared accounts) for PHI systems?' },
-      { id: 'ac_7', text: 'Are privileged accounts (admin) separate from regular user accounts?' },
-      { id: 'ac_8', text: 'Do you conduct periodic access reviews?' },
     ],
   },
   {
@@ -50,12 +44,6 @@ export const ASSESSMENT_CATEGORIES = [
     questions: [
       { id: 'dh_1', text: 'Is PHI encrypted at rest (AES-256 or equivalent)?' },
       { id: 'dh_2', text: 'Is PHI encrypted in transit (TLS 1.2+)?' },
-      { id: 'dh_3', text: 'Do you have a data retention and disposal policy?' },
-      { id: 'dh_4', text: 'Is PHI stored only in approved, documented locations?' },
-      { id: 'dh_5', text: 'Do you have controls to prevent unauthorized PHI downloads or exports?' },
-      { id: 'dh_6', text: 'Is PHI masked or de-identified in non-production environments?' },
-      { id: 'dh_7', text: 'Do you back up PHI and test restoration procedures?' },
-      { id: 'dh_8', text: 'Do you have a data classification policy?' },
     ],
   },
   {
@@ -65,12 +53,6 @@ export const ASSESSMENT_CATEGORIES = [
     questions: [
       { id: 'vm_1', text: 'Have all vendors who access PHI signed a Business Associate Agreement (BAA)?' },
       { id: 'vm_2', text: 'Do you maintain an inventory of all vendors who handle PHI?' },
-      { id: 'vm_3', text: 'Do you conduct vendor security reviews before onboarding?' },
-      { id: 'vm_4', text: 'Do you have a process for terminating vendor BAAs when contracts end?' },
-      { id: 'vm_5', text: 'Are vendor BAAs reviewed and renewed periodically?' },
-      { id: 'vm_6', text: 'Do you know which subcontractors your vendors use who may touch PHI?' },
-      { id: 'vm_7', text: 'Do you monitor vendors for security incidents?' },
-      { id: 'vm_8', text: 'Is there a process for vendors to report breaches to you?' },
     ],
   },
   {
@@ -78,14 +60,8 @@ export const ASSESSMENT_CATEGORIES = [
     label: 'Policies & Procedures',
     description: 'Written policies, training, and workforce compliance',
     questions: [
-      { id: 'pp_1', text: 'Have you designated a HIPAA Privacy Officer?' },
-      { id: 'pp_2', text: 'Have you designated a HIPAA Security Officer?' },
       { id: 'pp_3', text: 'Do you have a written Privacy Policy that covers PHI?' },
       { id: 'pp_4', text: 'Do you have a written Security Policy?' },
-      { id: 'pp_5', text: 'Have all workforce members received HIPAA training?' },
-      { id: 'pp_6', text: 'Is HIPAA training conducted annually?' },
-      { id: 'pp_7', text: 'Do you have a sanctions policy for workforce members who violate HIPAA?' },
-      { id: 'pp_8', text: 'Are your policies reviewed and updated at least annually?' },
     ],
   },
   {
@@ -95,12 +71,6 @@ export const ASSESSMENT_CATEGORIES = [
     questions: [
       { id: 'ir_1', text: 'Do you have a written Incident Response Plan?' },
       { id: 'ir_2', text: 'Does your plan cover the 60-day breach notification requirement?' },
-      { id: 'ir_3', text: 'Have you conducted a breach response drill or tabletop exercise?' },
-      { id: 'ir_4', text: 'Do you have a process for documenting and tracking security incidents?' },
-      { id: 'ir_5', text: 'Do you know how to file a breach report with OCR (HHS)?' },
-      { id: 'ir_6', text: 'Do you have cyber liability insurance?' },
-      { id: 'ir_7', text: 'Is there a designated person responsible for breach notifications?' },
-      { id: 'ir_8', text: 'Do you have a business continuity/disaster recovery plan?' },
     ],
   },
 ]

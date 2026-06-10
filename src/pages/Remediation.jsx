@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { CheckCircle2, Clock, Circle, ChevronDown, ChevronUp, ArrowLeft } from 'lucide-react'
+import { CheckCircle2, Clock, Circle, ChevronDown, ChevronUp, ArrowLeft, Lock } from 'lucide-react'
 import toast from 'react-hot-toast'
 import { supabase } from '../lib/supabase'
 import { useAuth } from '../hooks/useAuth'
@@ -99,6 +99,37 @@ export default function Remediation() {
         <Navbar />
         <div className="flex justify-center py-24">
           <Spinner size="lg" className="text-indigo-500" />
+        </div>
+      </div>
+    )
+  }
+
+  if (org && org.plan !== 'paid') {
+    return (
+      <div className="min-h-screen bg-slate-50">
+        <Navbar />
+        <div className="max-w-3xl mx-auto px-4 py-8">
+          <div className="flex items-center gap-3 mb-6">
+            <Link to="/dashboard" className="text-slate-400 hover:text-slate-700">
+              <ArrowLeft size={18} />
+            </Link>
+            <h1 className="text-2xl font-bold text-slate-900">Remediation Tracker</h1>
+          </div>
+          <div className="bg-gradient-to-br from-indigo-600 to-indigo-700 rounded-2xl p-8 text-white text-center">
+            <div className="w-12 h-12 bg-white/15 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <Lock size={22} />
+            </div>
+            <h2 className="font-semibold text-xl mb-2">Remediation tracker is a paid feature</h2>
+            <p className="text-indigo-200 text-sm mb-6 max-w-md mx-auto">
+              Upgrade to track and resolve every compliance gap identified in your assessment.
+            </p>
+            <Link
+              to="/landing#pricing"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-indigo-700 hover:bg-indigo-50 text-sm font-semibold rounded-lg"
+            >
+              View plans
+            </Link>
+          </div>
         </div>
       </div>
     )

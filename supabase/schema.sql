@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS organizations (
   has_mobile_app BOOLEAN,
   team_size     TEXT,
   compliance_status TEXT,
+  plan          TEXT NOT NULL DEFAULT 'free' CHECK (plan IN ('free', 'paid')),
   created_at    TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 

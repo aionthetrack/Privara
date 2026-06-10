@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import {
   ClipboardList, AlertTriangle, CheckCircle2, TrendingUp,
-  FileText, Share2, ChevronRight, RefreshCw
+  FileText, Share2, ChevronRight, RefreshCw, Lock
 } from 'lucide-react'
 import toast from 'react-hot-toast'
 import { supabase } from '../lib/supabase'
@@ -98,6 +98,7 @@ export default function Dashboard() {
 
   const scoreColor = score >= 71 ? 'text-green-600' : score >= 41 ? 'text-amber-500' : 'text-red-500'
   const ringColor = score >= 71 ? 'stroke-green-500' : score >= 41 ? 'stroke-amber-500' : 'stroke-red-500'
+  const isPaid = org?.plan === 'paid'
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -119,7 +120,7 @@ export default function Dashboard() {
             >
               <RefreshCw size={14} /> Re-assess
             </button>
-            <ShareButton orgId={org?.id} assessmentId={assessment.id} />
+            {isPaid && <ShareButton orgId={org?.id} assessmentId={assessment.id} />}
           </div>
         </div>
 
@@ -168,8 +169,10 @@ export default function Dashboard() {
           </div>
         </div>
 
+        {!isPaid && <UpgradePanel />}
+
         {/* Priority actions + Strengths */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        {isPaid && <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
           {priorityActions.length > 0 && (
             <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5">
               <div className="flex items-center gap-2 mb-3">
@@ -205,10 +208,10 @@ export default function Dashboard() {
               </ul>
             </div>
           )}
-        </div>
+        </div>}
 
         {/* Gaps list */}
-        <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+        {isPaid && <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
           <div className="px-6 py-4 border-b border-slate-100 flex items-center justify-between">
             <div>
               <h3 className="font-semibold text-slate-900">Compliance Gaps</h3>
@@ -238,10 +241,10 @@ export default function Dashboard() {
               )}
             </div>
           )}
-        </div>
+        </div>}
 
         {/* Policy CTA */}
-        <div className="bg-gradient-to-br from-indigo-600 to-indigo-700 rounded-2xl p-6 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        {isPaid && <div className="bg-gradient-to-br from-indigo-600 to-indigo-700 rounded-2xl p-6 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
             <h3 className="font-semibold text-lg">Generate Compliance Policies</h3>
             <p className="text-indigo-200 text-sm mt-1">
@@ -253,6 +256,31 @@ export default function Dashboard() {
             className="flex-shrink-0 flex items-center gap-2 px-5 py-2.5 bg-white text-indigo-700 hover:bg-indigo-50 text-sm font-semibold rounded-lg"
           >
             <FileText size={16} /> Generate Policies
+          </Link>
+        </div>}
+      </div>
+    </div>
+  )
+}
+
+function UpgradePanel() {
+  return (
+    <div className="bg-gradient-to-br from-indigo-600 to-indigo-700 rounded-2xl p-6 text-white">
+      <div className="flex items-start gap-3">
+        <div className="flex-shrink-0 w-10 h-10 bg-white/15 rounded-xl flex items-center justify-center">
+          <Lock size={18} />
+        </div>
+        <div className="flex-1">
+          <h3 className="font-semibold text-lg">Unlock your full compliance report</h3>
+          <p className="text-indigo-200 text-sm mt-1">
+            Upgrade to see your detailed gap analysis, priority actions, AI-generated policy documents,
+            remediation tracker, and a shareable audit report.
+          </p>
+          <Link
+            to="/landing#pricing"
+            className="inline-flex items-center gap-2 mt-4 px-5 py-2.5 bg-white text-indigo-700 hover:bg-indigo-50 text-sm font-semibold rounded-lg"
+          >
+            View plans
           </Link>
         </div>
       </div>

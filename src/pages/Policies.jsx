@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { FileText, Download, Copy, Check, Loader2, RefreshCw, X } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { FileText, Download, Copy, Check, Loader2, RefreshCw, X, Lock } from 'lucide-react'
 import toast from 'react-hot-toast'
 import { supabase } from '../lib/supabase'
 import { useAuth } from '../hooks/useAuth'
@@ -85,6 +86,38 @@ export default function Policies() {
 
     toast.success('Policy generated!')
     await fetchPolicies()
+  }
+
+  if (org && org.plan !== 'paid') {
+    return (
+      <div className="min-h-screen bg-slate-50">
+        <Navbar />
+        <div className="max-w-3xl mx-auto px-4 py-8">
+          <div className="mb-6">
+            <h1 className="text-2xl font-bold text-slate-900">Policy Documents</h1>
+            <p className="text-slate-500 text-sm mt-1">
+              AI-generated HIPAA-compliant policy templates tailored to {org?.name}.
+            </p>
+          </div>
+          <div className="bg-gradient-to-br from-indigo-600 to-indigo-700 rounded-2xl p-8 text-white text-center">
+            <div className="w-12 h-12 bg-white/15 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <Lock size={22} />
+            </div>
+            <h2 className="font-semibold text-xl mb-2">Policy generator is a paid feature</h2>
+            <p className="text-indigo-200 text-sm mb-6 max-w-md mx-auto">
+              Upgrade to generate AI-drafted Privacy Policy, Security Policy, and Incident Response Plan
+              documents tailored to your organization.
+            </p>
+            <Link
+              to="/landing#pricing"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-indigo-700 hover:bg-indigo-50 text-sm font-semibold rounded-lg"
+            >
+              View plans
+            </Link>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   return (

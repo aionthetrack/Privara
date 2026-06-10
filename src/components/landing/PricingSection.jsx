@@ -71,6 +71,22 @@ const TIERS = [
   },
 ]
 
+const AUDIT_PREP = {
+  name: 'Audit Prep Package',
+  subtitle: 'A one-time document bundle for due diligence — no subscription needed',
+  price: 499,
+  cta: 'Get the Audit Prep Package',
+  ctaTo: 'mailto:hello@privara.io?subject=Audit Prep Package ($499 one-time)',
+  included: [
+    'Full HIPAA risk assessment',
+    'AI compliance score & gap analysis',
+    'All generated policy documents',
+    'Remediation tracker access',
+    'Shareable audit report link',
+    'One-time payment — no recurring billing',
+  ],
+}
+
 export default function PricingSection() {
   const [annual, setAnnual] = useState(false)
 
@@ -202,6 +218,36 @@ export default function PricingSection() {
               </ul>
             </div>
           ))}
+        </div>
+
+        {/* One-time Audit Prep Package */}
+        <div className="mt-12 mx-auto max-w-3xl rounded-2xl border border-dashed border-blue-200 dark:border-blue-900/60 bg-blue-50/50 dark:bg-blue-950/20 p-8 sm:flex sm:items-center sm:justify-between sm:gap-8">
+          <div>
+            <div className="flex items-center gap-2">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{AUDIT_PREP.name}</h3>
+              <span className="inline-flex items-center rounded-full bg-blue-100 dark:bg-blue-900/40 px-2.5 py-0.5 text-xs font-medium text-blue-600 dark:text-blue-400">
+                One-time
+              </span>
+            </div>
+            <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{AUDIT_PREP.subtitle}</p>
+            <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
+              {AUDIT_PREP.included.map((feature) => (
+                <li key={feature} className="flex items-start gap-2.5">
+                  <Check size={16} className="mt-0.5 shrink-0 text-green-500" />
+                  <span className="text-sm text-gray-600 dark:text-gray-400">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="mt-6 sm:mt-0 flex flex-col items-center gap-3 shrink-0">
+            <div className="text-4xl font-medium text-gray-900 dark:text-white">${AUDIT_PREP.price}</div>
+            <a
+              href={AUDIT_PREP.ctaTo}
+              className="block w-full whitespace-nowrap rounded-lg bg-blue-500 px-6 py-2.5 text-center text-sm font-semibold text-white hover:bg-blue-600 transition-colors"
+            >
+              {AUDIT_PREP.cta}
+            </a>
+          </div>
         </div>
 
         {/* Enterprise callout */}

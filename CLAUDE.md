@@ -134,6 +134,14 @@ After adding/changing env vars, must redeploy for them to take effect.
 
 ---
 
+## Pricing page — current tiers (2026-06-10)
+`src/components/landing/PricingSection.jsx`:
+- Starter ($99/mo, $79 annual), Growth ($299/mo, $239 annual, 14-day trial), Scale ($599/mo, $479 annual, mailto CTA)
+- **Audit Prep Package — $499 one-time** (added 2026-06-10): one-time document bundle for due diligence,
+  no subscription. Grants access equivalent to `plan === 'paid'` gating (gap analysis, all policy docs,
+  remediation tracker, shareable report). CTA is currently `mailto:hello@privara.io` placeholder —
+  needs real Stripe one-time Checkout session once Stripe is wired up (see below).
+
 ## Next steps
 1. ~~Deploy frontend to Cloudflare Pages~~ ✅ DONE 2026-06-08 — https://privara-4q7.pages.dev
 2. ~~Add a remote Git origin (GitHub) and push~~ ✅ DONE 2026-06-08 — https://github.com/aionthetrack/Privara
@@ -141,5 +149,9 @@ After adding/changing env vars, must redeploy for them to take effect.
    - When this lands, add `plan` and `trial_ends_at` columns to `organizations` and gate
      premium features (e.g. Compliance Gaps "Manage" / remediation tracker on Dashboard)
      behind plan/trial status — currently fully open to all users regardless of plan.
+   - Also wire the **Audit Prep Package ($499 one-time)** Stripe Checkout (mode: `payment`, not
+     `subscription`). On successful payment, set `organizations.plan = 'paid'` (or a separate
+     `audit_prep_purchased_at` flag if one-time access should differ from a recurring 'paid' plan —
+     decide scope when building this).
 4. Add multi-user / team support
 5. Add re-assessment diff view (score over time)
